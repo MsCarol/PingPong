@@ -179,7 +179,9 @@ score.draw = function(context) {
     context.fillText("Player 1", (W/8) - 15, (3 * H / 4) - 50)
     context.fillText("Player 2", (W/8) - 15, (H / 4) - 50)
 
-    
+    context.font = "20px Georgia";
+    context.fillText("Move Mouse", 15, 60 );
+    context.fillText("Use Arrow Keys",(W/50) - 15, (3 * H / 4) - 80);
 
     context.font = "50px digital_font";
     context.fillText(player_1.score, W/8, 3 * H/4);
@@ -197,14 +199,14 @@ function update() {
     }
 
     // v.basic AI - move player_2 automatically
-    /*
+    
     if (ball.moving_up) {
         player_2.x = ball.x - player_2.width/2 + ball.width/2;
 
         player_2.collidesWithWall(board.left_wall);
         player_2.collidesWithWall(board.right_wall);
     }
-    */
+    
 }
 
 // draw player
