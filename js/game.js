@@ -148,14 +148,17 @@ var board = {
         ctx.stroke();
 
 
+
     }
+
+
 }
 
 // ball
 ball = new Ball();
 ball.setPosition(W/2 - 16, H/2 - 16);
-ball.moving_down = true;
-ball.moving_left = true;
+// ball.moving_down = true;
+// ball.moving_left = true;
 
 // player
 players = [];
@@ -178,6 +181,12 @@ score.draw = function(context) {
     context.font = "20px serif";
     context.fillText("Player 1", (W/8) - 15, (3 * H / 4) - 50)
     context.fillText("Player 2", (W/8) - 15, (H / 4) - 50)
+    
+    context.font = "25px Georgia";
+    context.fillStyle = "red";
+    context.fillText("To Play: Press Spacebar", 15, 20 );
+    context.fillStyle = "white";
+
 
     context.font = "20px Georgia";
     context.fillText("Move Mouse", 15, 60 );
@@ -186,6 +195,16 @@ score.draw = function(context) {
     context.font = "50px digital_font";
     context.fillText(player_1.score, W/8, 3 * H/4);
     context.fillText(player_2.score, W/8, H/4);
+
+    context.font = "50px digital_font";
+    if(player_1.msg != ""){
+      context.fillText(player_1.msg, W/3, H/3);
+
+    }
+    if (player_2.msg != "") {
+       context.fillText(player_2.msg, W/3, H/3);
+ 
+    }
 }
 
 // update [positions & collision detection]
@@ -259,6 +278,14 @@ canvas.onmousemove = function(e) {
 
 // respond to keyboard events
 document.onkeydown = function(e) {
+
+    if (e.keyCode == 32) {
+        ball.moving_down = true;
+        ball.moving_left = true;
+        player_1.score = 0;
+        player_2.score = 0;
+        
+    }
     // left
     if (e.keyCode == 37 || e.keyCode == 65) {
         player_1.is_moving_left = true;
@@ -268,6 +295,7 @@ document.onkeydown = function(e) {
     else if (e.keyCode == 39 || e.keyCode == 68) {
         player_1.is_moving_right = true;
     }
+
 }
 
 document.onkeyup = function(e) {
@@ -286,6 +314,7 @@ document.onkeyup = function(e) {
 function processGamePad() {
     var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
     var gp = gamepads[0];
+
     // gameController buttons
     if (gp != undefined &&  gp.connected) {
         //console.log(gp.axes[0])

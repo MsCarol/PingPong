@@ -17,6 +17,9 @@ function Player() {
     // score
     this.score = 0;
 
+    //winner
+    this.msg = "";
+
     // movements
     this.is_using_mouse = false;
     this.is_moving_right = false;
@@ -25,6 +28,8 @@ function Player() {
     this.ACCELERATION = 5;
     this.velocity_x = 1;
     this.velocity_y = 1;
+
+    
 }
 
 // set player's position
@@ -111,4 +116,5 @@ Player.prototype.draw = function(context) {
     //context.fillRect(this.x, this.y, this.width, this.height);
 
     context.drawImage(player_img, this.x, this.y);
+
 }

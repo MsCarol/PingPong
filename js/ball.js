@@ -57,7 +57,20 @@ Ball.prototype.collidesWithWall = function(wall) {
 
             score_sound.play();
             player_1.score++;
+
+            if (player_1.score >= 10){
+               ball = new Ball();
+               ball.setPosition(W/2 - 16, H/2 - 16);
+               ball.moving_down = false;
+               ball.moving_left = false;
+               
+               player_1.msg = "Player 1 Wins!";
+               
+              // 
+            }
         }
+        
+
 
         this.moving_up = false;
         this.moving_down = true;
@@ -71,8 +84,18 @@ Ball.prototype.collidesWithWall = function(wall) {
 
             score_sound.play();
             player_2.score++;
-        }
 
+            if (player_2.score >= 10){
+               ball = new Ball();
+               ball.setPosition(W/2 - 16, H/2 - 16);
+               ball.moving_down = false;
+               ball.moving_left = false;
+
+               player_2.msg = "Player 2 Wins!";
+
+
+            }
+        }
         this.moving_down = false;
         this.moving_up = true;
         wall_sound.play();
