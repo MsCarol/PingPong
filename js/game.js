@@ -219,12 +219,12 @@ function update() {
 
     // v.basic AI - move player_2 automatically
     
-    if (ball.moving_up) {
-        player_2.x = ball.x - player_2.width/2 + ball.width/2;
+    // if (ball.moving_up) {
+    //     player_2.x = ball.x - player_2.width/2 + ball.width/2;
 
-        player_2.collidesWithWall(board.left_wall);
-        player_2.collidesWithWall(board.right_wall);
-    }
+    //     player_2.collidesWithWall(board.left_wall);
+    //     player_2.collidesWithWall(board.right_wall);
+    // }
     
 }
 
@@ -284,6 +284,8 @@ document.onkeydown = function(e) {
         ball.moving_left = true;
         player_1.score = 0;
         player_2.score = 0;
+        player_1.msg = "";
+        player_2.msg = "";
         
     }
     // left

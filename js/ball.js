@@ -52,8 +52,8 @@ Ball.prototype.collidesWithWall = function(wall) {
     }
 
     else if (wall.dir == "top" && ball.y < (wall.y + wall.h)) {
-        if ((this.x + this.width/2) >= W/2 - board.goal_wdith/2 &&
-            (this.x + this.width/2) <= W/2 + board.goal_wdith/2 ) {
+        // if ((this.x + this.width/2) >= W/2 - board.goal_wdith/2 &&
+        //     (this.x + this.width/2) <= W/2 + board.goal_wdith/2 ) {
 
             score_sound.play();
             player_1.score++;
@@ -68,7 +68,7 @@ Ball.prototype.collidesWithWall = function(wall) {
                
               // 
             }
-        }
+      //  }
         
 
 
@@ -79,8 +79,8 @@ Ball.prototype.collidesWithWall = function(wall) {
 
     else if (wall.dir == "bottom" && wall.y < (this.y + this.height)) {
         // check if collided with the goal
-        if ((this.x + this.width/2) >= W/2 - board.goal_wdith/2 &&
-            (this.x + this.width/2) <= W/2 + board.goal_wdith/2 ) {
+        // if ((this.x + this.width/2) >= W/2 - board.goal_wdith/2 &&
+        //     (this.x + this.width/2) <= W/2 + board.goal_wdith/2 ) {
 
             score_sound.play();
             player_2.score++;
@@ -95,7 +95,7 @@ Ball.prototype.collidesWithWall = function(wall) {
 
 
             }
-        }
+        //}
         this.moving_down = false;
         this.moving_up = true;
         wall_sound.play();
